@@ -31,14 +31,20 @@ def process_line(stub, tokenizer, line, max_tokens=2000):
         
         # Collect all response chunks
         full_response = []
+        first_token_seen = False
+        
         for resp in response:
             chunk = resp.stream_content.samples[0].text
-            if chunk:  # Filter empty chunks
+            if chunk:
+                if not first_token_seen:
+                    first_token_seen = True
+                    continue  # Skip the first token
                 full_response.append(chunk)
         
         return prompt, "".join(full_response).strip()
     except Exception as e:
-        return None, f"[ERROR: {str(e)}]"    
+        return None, f"[ERROR: {str(e)}]"
+
 
 def old_process_line(stub, tokenizer, line, max_tokens=2000):
     try:
