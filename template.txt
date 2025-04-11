@@ -1,0 +1,2 @@
+Den følgende teksten skal korrigeres for åpenbare feil. Feil er kan være feil fra OCR-lesing, fra parsing av pdf-filer, fra lesing av websider. Alt som ikke er ren, lesbar, norsk tekst fjernet. Returner kun den korrigerte teksten. Fjern mellomoverskrifter som står på egen linje og ikke er avsluttet med punktum.Her er teksten du skal korrigere:
+{text}
