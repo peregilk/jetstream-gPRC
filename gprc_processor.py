@@ -130,22 +130,28 @@ async def process_line_async(stub, tokenizer, line_number, line, max_output_toke
         return result
 
 # --- File Utilities ---
-async def read_lines_async(filepath: str) -> AsyncGenerator[Tuple[int, Dict], None]:
+async def read_lines_async(filepath: str, skip_lines: int) -> AsyncGenerator[Tuple[int, Dict], None]:
     with open(filepath, "r", encoding="utf-8") as infile:
         for line_num, line_str in enumerate(infile, 1):
+            if line_num <= skip_lines: continue
             try: yield line_num, json.loads(line_str)
             except json.JSONDecodeError: log.error(f"Skipping bad JSON at line {line_num}")
             await asyncio.sleep(0)
 
 # --- Main Runner ---
 async def run(args):
-    if args.input_file.startswith("gs://") and not gs_exists(args.input_file):
-        log.critical(f"Input bucket file does not exist: {args.input_file}"); exit(1)
-
     input_path = args.input_file
-    if args.input_file.startswith("gs://"):
-        subprocess.run(["gsutil", "cp", args.input_file, LOCAL_TMP_PATH], check=True)
+    if input_path.startswith("gs://"):
+        if not gs_exists(input_path):
+            log.critical(f"Input bucket file does not exist: {input_path}"); exit(1)
+        subprocess.run(["gsutil", "cp", input_path, LOCAL_TMP_PATH], check=True)
         input_path = LOCAL_TMP_PATH
+
+    skip = 0
+    if os.path.exists(args.output_file):
+        with open(args.output_file, "r", encoding="utf-8") as f:
+            skip = sum(1 for _ in f)
+        log.info(f"Auto-recovery: Skipping {skip} lines already present in {args.output_file}")
 
     tokenizer = AutoTokenizer.from_pretrained(args.tokenizer, use_fast=False)
     template = load_template(args.template_file)
@@ -154,7 +160,8 @@ async def run(args):
 
     with open(input_path, "r", encoding="utf-8") as f:
         total = sum(1 for _ in f)
-    out = open(args.output_file, "w", encoding="utf-8")
+
+    out = open(args.output_file, "a", encoding="utf-8")
 
     async with grpc.aio.insecure_channel(address) as channel:
         stub = jetstream_pb2_grpc.OrchestratorStub(channel)
@@ -162,11 +169,11 @@ async def run(args):
             asyncio.create_task(process_line_async(
                 stub, tokenizer, ln, data, args.max_output_tokens, args.max_input_tokens,
                 template, args.debug, semaphore, args.timeout, args.task))
-            async for ln, data in read_lines_async(input_path)
+            async for ln, data in read_lines_async(input_path, skip)
         ]
 
-        ok, err, shard, timeout, counter = 0, 0, 0, 0, 0
-        for coro in tqdm_asyncio.as_completed(tasks, total=total, desc="Processing"):
+        ok, err, shard, timeout, counter = 0, 0, 0, 0, skip
+        for coro in tqdm_asyncio.as_completed(tasks, total=(total - skip), desc="Processing"):
             try:
                 result = await coro
                 counter += 1
@@ -214,4 +221,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
