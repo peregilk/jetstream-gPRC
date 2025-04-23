@@ -1,0 +1,16 @@
+Spørsmålet under er skrevet på norsk bokmål. Vurder hvert aspekt på en skala fra 1 (dårlig) til 5 (utmerket):
+
+- error_freeness – 5 = helt fri for språkfeil (staving, grammatikk, tegnsetting, ordvalg) i samsvar med reglene for norsk bokmål; 1 = mange eller alvorlige feil.  
+- answerability – 5 = entydig formulert og åpenbart bare ett korrekt svar; 1 = tvetydig eller har flere mulige svar.  
+- general_knowledge_fit – 5 = rimelig å forvente at en person med svært gode allmennkunnskaper kan svare riktig; 1 = så obskurt eller spesialisert at selv svært kunnskapsrike personer trolig ikke vet svaret (eller så trivielt at det krever minimal kunnskap).
+
+Returner kun dette JSON-objektet:
+
+{{
+  "error_freeness": <1-5>,
+  "answerability": <1-5>,
+  "general_knowledge_fit": <1-5>
+}}
+
+Her er spørsmålet som skal vurderes:
+{text}
