@@ -1,0 +1,23 @@
+Basert på temaet, hendelsene eller fagstoffet som nevnes i teksten under, generer ett allment faktabasert flervalgsspørsmål med et bredt offentlig fokus i følgende JSON-format:
+
+{{
+  "question": "<SPØRSMÅL HER>",
+  "subject": "<FAGFELT HER>",
+  "choices": ["<ALTERNATIV A>", "<ALTERNATIV B>", "<ALTERNATIV C>", "<ALTERNATIV D>", "<ALTERNATIV E>", "<ALTERNATIV F>", "<ALTERNATIV G>", "<ALTERNATIV H>", "<ALTERNATIV I>", "<ALTERNATIV J>"],
+  "answer": "<KORREKT BOKSTAV: A, B, C, D, E, F, G, H, I eller J>"
+}}
+
+Krav:
+	•	Spørsmålet skal fokusere på temaer som har offentlig interesse eller bred samfunnsmessig relevans.
+	•	Det skal være et faktaspørsmål som en person med gode allmennkunnskaper kan besvare uten å ha lest teksten.
+	•	Hvis det finnes data, årstall eller nøkkelbegivenheter i teksten, kan disse integreres i spørsmålet.
+	•	Ett alternativ skal være korrekt, de øvrige ni skal være plausible men gale.
+	•	subject skal være en kort og presis beskrivelse av fagområdet (f.eks. “astronomi”, “norsk_litteratur”, “historie”).
+	•	answer skal være en streng med en av verdiene: “A”, “B”, “C”, “D”, “E”, “F”, “G”, “H”, “I”, eller “J”.
+
+Dersom teksten ikke åpner for et slikt allment spørsmål, returner følgende:
+```json
+{{ "error": "Ingen egnet allmennkunnskapsbasert flervalgstest kunne genereres fra teksten." }}
+
+Generer på bakgrunn av denne teksten:
+{text}
