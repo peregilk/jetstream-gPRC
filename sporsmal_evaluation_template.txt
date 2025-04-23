@@ -2,8 +2,7 @@ Spørsmålet under er skrevet på norsk bokmål. Vurder hvert aspekt slik:
 
 • error_freeness – Gi en score fra 1 (dårlig) til 5 (helt fri for språkfeil i samsvar med reglene for norsk bokmål).  
 • answerability – Gi en score fra 1 (tvetydig eller flere mulige svar) til 5 (entydig formulert med kun ett mulig korrekt svar).  
-• general_knowledge_fit – Sett **true** hvis det er rimelig å forvente at en person med svært gode allmennkunnskaper om norsk språk og kultur kan svare riktig; ellers **false**.
-
+• general_knowledge_fit – **true** dersom det er realistisk at en person med ekstremt god kunnskap om norsk språk og kultur kan svare korrekt; **false** kun hvis spørsmålet i praksis er umulig å besvare (krever privat informasjon eller ikke-verifiserbare fakta).
 Returner **kun** dette JSON-objektet:
 
 {{
