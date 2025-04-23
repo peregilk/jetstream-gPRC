@@ -1,0 +1,14 @@
+Teksten under er skrevet på norsk bokmål. Vurder to aspekter ved teksten på en skala fra 1 til 5:
+
+• error_freeness – 5 = helt fri for språkfeil (staving, grammatikk, tegnsetting, ordvalg) i samsvar med reglene for norsk bokmål; 1 = mange eller alvorlige feil.  
+• coherence – hvor godt teksten henger sammen; 5 = svært god sammenheng mellom setninger og avsnitt; 1 = dårlig eller usammenhengende.
+
+Returner kun dette JSON-objektet:
+
+{{
+  "error_freeness": <1-5>,
+  "coherence": <1-5>
+}}
+
+Her er teksten som skal vurderes:
+{text}
