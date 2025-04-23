@@ -13,4 +13,4 @@ Returner **kun** dette JSON-objektet:
 }}
 
 Her er spørsmålet som skal vurderes:
-{question}
+{text}
