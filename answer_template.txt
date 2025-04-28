@@ -1,0 +1,22 @@
+Du får en større tekst. Oppgaven din er å ekstrahere en sammenhengende del av teksten som kan fungere som svar på et generelt spørsmål.
+
+Krav:
+1) Du kjenner ikke spørsmålet på forhånd.
+2) Den ekstraherte teksten må være hentet direkte fra originalteksten, uten endringer, tillegg eller omskrivninger.
+3) Den ekstraherte delen må bestå av minst to hele setninger.
+4) Hvis ingen passende del finnes, skal du returnere en tom streng.
+
+Etter ekstraksjonen skal du vurdere kvaliteten på svaret basert på følgende skala:
+- "høy": Svaret er nøyaktig, relevant, bygger på pålitelig informasjon om virkelige forhold, og oppfyller alle kravene.
+- "middels": Svaret er akseptabelt, men har mindre svakheter i relevans, klarhet eller presisjon.
+- "lav": Svaret er dårlig egnet som svar, eller bryter med ett eller flere krav.
+- "ingen": Ingen passende del ble funnet (hvis svaret er en tom streng).
+
+Formatér svaret slik:
+{
+  "svar": "<ekstrahert_tekst_eller_tom_streng>",
+  "kvalitet": "<høy|middels|lav|ingen>"
+}
+
+Her er teksten:
+{tekst}
