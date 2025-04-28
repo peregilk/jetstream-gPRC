@@ -19,4 +19,4 @@ Formatér svaret slik:
 }}
 
 Her er teksten:
-{tekst}
+{text}
