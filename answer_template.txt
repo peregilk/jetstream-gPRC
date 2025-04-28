@@ -13,10 +13,10 @@ Etter ekstraksjonen skal du vurdere kvaliteten på svaret basert på følgende s
 - "ingen": Ingen passende del ble funnet (hvis svaret er en tom streng).
 
 Formatér svaret slik:
-{
+{{
   "svar": "<ekstrahert_tekst_eller_tom_streng>",
   "kvalitet": "<høy|middels|lav|ingen>"
-}
+}}
 
 Her er teksten:
 {tekst}
