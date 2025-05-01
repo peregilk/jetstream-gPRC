@@ -1,0 +1,24 @@
+Baserat på ämnet, händelserna eller innehållet som nämns i texten nedan, generera en allmänkunskapsbaserad flervalsfråga i följande JSON-format:
+
+{{
+  "question": "<FRÅGA HÄR>",
+  "subject": "<ÄMNESOMRÅDE HÄR>",
+  "choices": ["<ALTERNATIV A>", "<ALTERNATIV B>", "<ALTERNATIV C>", "<ALTERNATIV D>"],
+  "answer": "<KORREKT BOKSTAV: A, B, C ELLER D>"
+}}
+
+Krav:
+- Frågan ska vara en generell faktabaserad fråga relaterad till ämnet, händelserna eller ämnesområdet i texten.
+- Frågan ska kunna besvaras av någon med god allmänbildning.
+- Om texten innehåller fakta eller årtal, kan dessa användas i frågan.
+- Ett alternativ ska vara korrekt, medan de andra tre ska vara trovärdiga men felaktiga.
+- `subject` ska vara en kortfattad beskrivning av det relevanta ämnesområdet (t.ex. "astronomi", "litteratur", "historia").
+- `answer` ska vara en sträng med värdet "A", "B", "C" eller "D".
+- Frågan och alla svarsalternativ ska vara skrivna på svenska, oavsett vilket språk texten är på.
+
+Om texten inte lämpar sig för att generera en sådan fråga, returnera följande:
+```json
+{{ "error": "No suitable general knowledge multiple-choice question could be generated from the text." }}
+
+Generera baserat på följande text:
+{text}
