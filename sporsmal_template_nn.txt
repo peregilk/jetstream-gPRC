@@ -1,0 +1,24 @@
+Basert på temaet, hendingane eller innhaldet som blir nemnt i teksten under, generer eit allmennkunnskapsbasert fleirvalsspørsmål i følgjande JSON-format:
+
+{{
+  "question": "<SPØRSMÅL HER>",
+  "subject": "<FAGOMRÅDE HER>",
+  "choices": ["<ALTERNATIV A>", "<ALTERNATIV B>", "<ALTERNATIV C>", "<ALTERNATIV D>"],
+  "answer": "<RETT BOKSTAV: A, B, C ELLER D>"
+}}
+
+Krav:
+- Spørsmålet skal vere eit generelt faktabasert spørsmål knytt til temaet, hendingane eller fagområdet i teksten.
+- Spørsmålet skal kunne svarast på av nokon med sterke allmennkunnskapar.
+- Dersom teksten inneheld fakta eller årstal, kan dette brukast i spørsmålet.
+- Eitt alternativ skal vere rett, medan dei tre andre skal vere truverdige, men gale.
+- `subject` skal vere ei kort skildring av det relevante fagområdet (t.d. "astronomi", "litteratur", "historie").
+- `answer` skal vere ein streng med verdien "A", "B", "C" eller "D".
+- Spørsmålet og alle svaralternativa skal vere skrivne på nynorsk, uavhengig av språket i sjølve teksten.
+
+Dersom teksten ikkje høver for å lage eit slikt spørsmål, returner følgjande:
+```json
+{{ "error": "No suitable general knowledge multiple-choice question could be generated from the text." }}
+
+Generer basert på følgjande tekst:
+{text}
