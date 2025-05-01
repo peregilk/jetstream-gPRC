@@ -1,0 +1,24 @@
+Based on the topic, events, or subject matter mentioned in the text below, generate a general knowledge multiple-choice question in the following JSON format:
+
+{{
+  "question": "<QUESTION HERE>",
+  "subject": "<FIELD OF KNOWLEDGE HERE>",
+  "choices": ["<OPTION A>", "<OPTION B>", "<OPTION C>", "<OPTION D>"],
+  "answer": "<CORRECT LETTER: A, B, C OR D>"
+}}
+
+Requirements:
+- The question should be a general fact-based question related to the topic, events, or subject area of the text.
+- The question should be answerable by someone with strong general knowledge.
+- If the text contains facts or dates, these may be used in the question.
+- One option must be correct, while the other three should be plausible but incorrect.
+- `subject` should be a concise description of the relevant field (e.g., "astronomy", "literature", "history").
+- `answer` must be a string with the value "A", "B", "C", or "D".
+- The question and all answer choices must be written in English, regardless of the language of the input text.
+
+If the text does not lend itself to generating such a general knowledge question, return the following:
+```json
+{{ "error": "No suitable general knowledge multiple-choice question could be generated from the text." }}
+
+Generate based on the following text:
+{text}
