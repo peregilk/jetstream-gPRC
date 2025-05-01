@@ -1,0 +1,24 @@
+Baseret på emnet, begivenhederne eller indholdet nævnt i teksten nedenfor, generér et alment vidensbaseret multiple choice-spørgsmål i følgende JSON-format:
+
+{{
+  "question": "<SPØRGSMÅL HER>",
+  "subject": "<VIDENSOMRÅDE HER>",
+  "choices": ["<VALGMULIGHED A>", "<VALGMULIGHED B>", "<VALGMULIGHED C>", "<VALGMULIGHED D>"],
+  "answer": "<KORREKT BOGSTAV: A, B, C ELLER D>"
+}}
+
+Krav:
+- Spørgsmålet skal være et generelt faktabaseret spørgsmål relateret til emnet, begivenhederne eller fagområdet i teksten.
+- Spørgsmålet skal kunne besvares af en person med stærke almene kundskaber.
+- Hvis teksten indeholder fakta eller årstal, kan disse bruges i spørgsmålet.
+- Én valgmulighed skal være korrekt, mens de tre andre skal være plausible, men forkerte.
+- `subject` skal være en kort beskrivelse af det relevante vidensområde (f.eks. "astronomi", "litteratur", "historie").
+- `answer` skal være en streng med værdien "A", "B", "C" eller "D".
+- Spørgsmålet og alle svarmuligheder skal være skrevet på dansk, uanset hvilket sprog inputteksten er på.
+
+Hvis teksten ikke egner sig til at generere et sådant spørgsmål, returnér følgende:
+```json
+{{ "error": "No suitable general knowledge multiple-choice question could be generated from the text." }}
+
+Generér på baggrund af følgende tekst:
+{text}
