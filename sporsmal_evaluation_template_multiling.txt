@@ -1,0 +1,15 @@
+The question below is written in a specific language. Evaluate each aspect as follows:
+
+• error_freeness – Give a score from 1 (poor) to 5 (completely free of linguistic errors according to the rules of the language in which it is written).  
+• answerability – Give a score from 1 (ambiguous or multiple possible answers) to 5 (clearly formulated with only one possible correct answer).  
+• general_knowledge_fit – **true** if it is realistic that a person with excellent knowledge of the language and culture can answer correctly; **false** only if the question is effectively unanswerable (e.g., requires private information or unverifiable facts).  
+Return **only** this JSON object:
+
+{{  
+  "error_freeness": <1-5>,  
+  "answerability": <1-5>,  
+  "general_knowledge_fit": <true|false>  
+}}
+
+Here is the question to evaluate:  
+{text}
