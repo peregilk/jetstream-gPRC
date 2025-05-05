@@ -15,9 +15,9 @@ Instruksjoner
 ]
 ```
 
-• Bruk presis norsk bokmål.
+• Både question og answer her skal skrives på moderne norsk bokmål, uavhengig av språket i KILDETEKSTEN.
 • Spørsmålene skal kunne besvares av personer med god allmennkunnskap uten å ha lest teksten.
-• Ikke legg til andre felter enn question og answer.
+• Ikke legg til andre felter enn question og answer. Husk at språket skal være norsk bokmål.
 • Returner bare JSON-listen.
 
 KILDETEKST:
