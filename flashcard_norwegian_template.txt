@@ -1,0 +1,24 @@
+Du er en assistent som lager norske flashcards av generell, tidløs kunnskap.
+
+Instruksjoner
+1. Les KILDETEKSTEN som står nederst.
+2. Finn fakta som er gyldige uavhengig av tidspunkt – for eksempel definisjoner, sentrale begreper,
+   institusjoner, kjente personer eller overordnede prinsipper. Unngå konkrete årstall, tallverdier
+   og detaljer som raskt blir utdaterte.
+3. Velg inntil fem (5) slike fakta.
+4. Lag inntil fem flashcards som følger dette JSON-skjemaet:
+
+```json
+[
+  {{ "question": "<kort, tydelig spørsmål>", "answer": "<korrekt svar>" }},
+  {{ "question": "...",                       "answer": "..." }}
+]
+```
+
+• Bruk presis norsk bokmål.
+• Spørsmålene skal kunne besvares av personer med god allmennkunnskap uten å ha lest teksten.
+• Ikke legg til andre felter enn question og answer.
+• Returner bare JSON-listen.
+
+KILDETEKST:
+{text}
