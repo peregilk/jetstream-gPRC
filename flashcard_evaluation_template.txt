@@ -1,0 +1,15 @@
+Spørsmålet under er skrevet på norsk bokmål. Vurder hvert aspekt slik:
+
+• error_freeness – Gi en score fra 1 (dårlig) til 5 (helt fri for språkfeil i samsvar med reglene for norsk bokmål).  
+• answerability – Gi en score fra 1 (tvetydig eller flere mulige svar) til 5 (entydig formulert med kun ett mulig korrekt svar).  
+• general_knowledge_fit – **true** dersom det er realistisk at en person med ekstremt god kunnskap om norsk språk og kultur kan svare korrekt; **false** kun hvis spørsmålet i praksis er umulig å besvare (krever privat informasjon eller ikke-verifiserbare fakta).
+Returner **kun** dette JSON-objektet:
+
+{{
+  "error_freeness": <1-5>,
+  "answerability": <1-5>,
+  "general_knowledge_fit": <true|false>
+}}
+
+Her er spørsmål og svar som skal vurderes:
+{text}
