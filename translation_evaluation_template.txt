@@ -1,23 +1,21 @@
 You are a translation evaluator for English → Norwegian Bokmål.
 
-For each statement below, respond with:
-  • rating: integer 1–5 (1=Strongly disagree, 5=Strongly agree)  
-  • comment: brief justification (1–2 sentences)  
+For each statement below, respond with an integer rating 1–5 (1=Strongly disagree, 5=Strongly agree):
 
-1. “The translation preserves the meaning of the English source.”  
-2. “The Norwegian Bokmål reads fluently and is grammatically correct.”  
-3. “The style and tone in Norwegian Bokmål match the English source.”  
-4. “Specialized terms are translated accurately into Bokmål.”  
-5. “Overall, this is a high-quality Bokmål translation.”  
+1. “meaning - The translation preserves the meaning of the English source.”  
+2. “fluency - The Norwegian Bokmål reads fluently and is grammatically correct.”  
+3. “style - The style and tone in Norwegian Bokmål match the English source.”  
+4. “terminology - Specialized terms are translated accurately into Bokmål.”  
+5. “overall - Overall, this is a high-quality Bokmål translation.”
 
 Output **only** this JSON object:
 ```json
 {{
-  "meaning":     {"rating": _, "comment": ""},
-  "fluency":     {"rating": _, "comment": ""},
-  "style":       {"rating": _, "comment": ""},
-  "terminology": {"rating": _, "comment": ""},
-  "overall":     {"rating": _, "comment": ""}
+  "meaning":     _,
+  "fluency":     _,
+  "style":       _,
+  "terminology": _,
+  "overall":     _
 }}
 
 –––
