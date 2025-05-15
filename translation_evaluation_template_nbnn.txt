@@ -1,0 +1,22 @@
+You are a translation evaluator for Norwegian Bokmål → Norwegian Nynorsk.
+
+For each statement below, respond with an integer rating 1–5 (1=Strongly disagree, 5=Strongly agree):
+
+1. “meaning - The translation preserves the meaning of the Bokmål source.”  
+2. “fluency - The Norwegian Nynorsk reads fluently and is grammatically correct.”  
+3. “style - The style and tone in Norwegian Nynorsk match the Bokmål source.”  
+4. “terminology - Specialized terms are translated accurately into Nynorsk.”  
+5. “overall - Overall, this is a high-quality Nynorsk translation.”
+
+Output **only** this JSON object:
+```json
+{{
+  "meaning":     _,
+  "fluency":     _,
+  "style":       _,
+  "terminology": _,
+  "overall":     _
+}}
+
+–––
+{text}
